@@ -1,0 +1,19 @@
+Bundle-Name: ${project.name}
+Bundle-Version: ${project.version}
+Bundle-SymbolicName: ${project.artifactId}
+Bundle-Name: ${project.name}
+Bundle-Description: ${project.description}
+
+Import-Package: \
+	javax.portlet;version='[2.0,3)',\
+	javax.servlet;version='[2.5,4)',\
+	com.vaadin.ui;version='[7.4.6,8)',\
+	com.vaadin.server;version='[7.4.6,8)',\
+	com.vaadin.annotations;version='[7.4.6,8)',\
+	com.vaadin.data.util;version='[7.4.6,8)',\
+	com.vaadin.data;version='[7.4.6,8)',\
+	*
+
+-dsannotations: *
+Bundle-Version: ${project.version}
+Private-Package: org.liferay.vaadin7.chat.tableview

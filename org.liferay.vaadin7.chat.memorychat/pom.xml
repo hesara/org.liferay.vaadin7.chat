@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	    <groupId>org.liferay.vaadin7.chat</groupId>
+	    <artifactId>org.liferay.vaadin7.chat</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	    <relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>org.liferay.vaadin7.chat.memorychat</artifactId>
+	<name>Vaadin 7 MemoryChat implementation</name>
+	<description>Vaadin 7 MemoryChat implementation
+This is using chat API</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.liferay.vaadin7.chat</groupId>
+			<artifactId>org.liferay.vaadin7.chat.api</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}.${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
