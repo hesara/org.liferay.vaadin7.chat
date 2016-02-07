@@ -85,10 +85,8 @@ public class PortletUI extends UI implements ServiceTrackerCustomizer<ViewFactor
 		try {
 			accessSynchronously(() -> {
 				VerticalLayout verticalLayout = (VerticalLayout) getContent();
-				_log.info(service + " fragmentFactory removed " + _serviceRegistry.size());
 				_serviceRegistry.get(reference).forEach(component -> {
 					verticalLayout.removeComponent(component);
-					_log.error(component.getStyleName() + " removed");
 				});
 				_serviceRegistry.remove(reference);
 			});
