@@ -1,5 +1,6 @@
 package org.liferay.vaadin7.chat.ui;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +55,13 @@ public class PortletUI extends UI implements ServiceTrackerCustomizer<ViewFactor
 		try {
 			access(() -> {
 				Component component = viewFactory.createView();
-				_serviceRegistry.put(serviceReference, Arrays.asList(component));
+				List<Component> components = _serviceRegistry.get(serviceReference);
+				if (components==null) {
+					components = new ArrayList<>();
+				}
+				components.add(component);
+				
+				_serviceRegistry.put(serviceReference, components);
 
 				VerticalLayout verticalLayout = (VerticalLayout) getContent();
 				verticalLayout.addComponent(component);
