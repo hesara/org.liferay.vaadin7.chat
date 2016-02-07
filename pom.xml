@@ -20,6 +20,7 @@
 		<module>org.liferay.vaadin7.chat.view</module>
 		<module>org.liferay.vaadin7.chat.distribution</module>
 		<module>org.liferay.vaadin7.chat.tableview</module>
+		<module>org.liferay.vaadin7.chat.labelview</module>
 	</modules>
 	<build>
 		<pluginManagement>
