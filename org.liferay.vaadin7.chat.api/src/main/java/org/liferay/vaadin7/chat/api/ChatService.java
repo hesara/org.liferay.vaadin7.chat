@@ -3,8 +3,6 @@ package org.liferay.vaadin7.chat.api;
 import java.util.List;
 
 public interface ChatService {
-	
-	
 	public void addMessage(String fromUsername, String body);
 	
 	public List<Message> findAllMessages();
