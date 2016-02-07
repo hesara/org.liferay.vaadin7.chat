@@ -1,5 +1,7 @@
 package org.liferay.vaadin7.chat.tableview;
 
+import java.util.Date;
+
 import org.liferay.vaadin7.chat.api.ChatService;
 import org.liferay.vaadin7.chat.api.Message;
 import org.liferay.vaadin7.chat.view.ViewFactory;
@@ -23,6 +25,27 @@ import com.vaadin.ui.VerticalLayout;
 
 @Component(service = ViewFactory.class)
 public class TableViewFactory implements ViewFactory {
+	private class WrappedMessage implements Message {
+		public WrappedMessage(Message message) {
+			_message = message;
+		}
+		
+		@Override
+		public Date getTime() {
+			return _message.getTime();
+		}
+
+		@Override
+		public String getFromUser() {
+			return _message.getFromUser();
+		}
+
+		@Override
+		public String getBody() {
+			return _message.getBody().replaceAll("<[^>]*>", "");
+		}
+		Message _message;
+	};
 	@Override
 	public com.vaadin.ui.Component createView() {
 		_log.info("createView()");
@@ -33,6 +56,7 @@ public class TableViewFactory implements ViewFactory {
 		beanItemContainer.addAll(_chatService.findAllMessages());
 
 		Table table = new Table("Tableview Chat", beanItemContainer);
+		//table.setVisibleColumns(new Object[] { "time","fromUser", "body" });
 		table.setVisibleColumns(new Object[] { "fromUser", "body" });
 		table.setColumnReorderingAllowed(false);
 		table.setPageLength(7);
@@ -41,7 +65,8 @@ public class TableViewFactory implements ViewFactory {
 		table.setWidth(100, Unit.PERCENTAGE);
 
 		_chatService.register((message) -> {
-			beanItemContainer.addBean(message);
+			
+			beanItemContainer.addBean(new WrappedMessage(message));
 		});
 
 		Button button = new Button("Send");
