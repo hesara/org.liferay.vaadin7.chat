@@ -46,6 +46,12 @@
 			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.liferay.vaadin7.compatibilitypack</groupId>
+			<artifactId>org.liferay.vaadin7.compatibilitypack.webresources</artifactId>
+			<version>7.6.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
