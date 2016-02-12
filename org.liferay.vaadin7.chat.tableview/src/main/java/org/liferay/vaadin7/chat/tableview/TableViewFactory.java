@@ -1,8 +1,11 @@
 package org.liferay.vaadin7.chat.tableview;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.liferay.vaadin7.chat.api.ChatService;
+import org.liferay.vaadin7.chat.api.ChatService.MessageHandler;
 import org.liferay.vaadin7.chat.api.Message;
 import org.liferay.vaadin7.chat.view.ViewFactory;
 import org.osgi.service.component.annotations.Component;
@@ -25,6 +28,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @Component(service = ViewFactory.class)
 public class TableViewFactory implements ViewFactory {
+/* REMOVE HTML 
 	private class WrappedMessage implements Message {
 		public WrappedMessage(Message message) {
 			_message = message;
@@ -46,6 +50,7 @@ public class TableViewFactory implements ViewFactory {
 		}
 		Message _message;
 	};
+*/
 	@Override
 	public com.vaadin.ui.Component createView() {
 		_log.info("createView()");
@@ -53,11 +58,19 @@ public class TableViewFactory implements ViewFactory {
 
 		BeanItemContainer<Message> beanItemContainer = new BeanItemContainer<Message>(Message.class);
 
-		beanItemContainer.addAll(_chatService.findAllMessages());
-
+		// 
+		List<Message> messages = _chatService.findAllMessages();
+		// REMOVE HTML .. comment above when uncommenting below
+		//List<Message> messages = _chatService.findAllMessages().stream().map(message -> new WrappedMessage(message)).collect(Collectors.toList());
+		
+		beanItemContainer.addAll(messages);		
+		
 		Table table = new Table("Tableview Chat", beanItemContainer);
-		//table.setVisibleColumns(new Object[] { "time","fromUser", "body" });
-		table.setVisibleColumns(new Object[] { "fromUser", "body" });
+		
+		// columns
+		
+		table.setVisibleColumns(new Object[] { "time","fromUser", "body" });
+		//table.setVisibleColumns(new Object[] { "fromUser", "body" });
 		table.setColumnReorderingAllowed(false);
 		table.setPageLength(7);
 		table.setBuffered(false);
@@ -66,6 +79,8 @@ public class TableViewFactory implements ViewFactory {
 
 		MessageHandler messageHandler = (message) -> {
 
+			// REMOVE HTML 
+			//beanItemContainer.addBean(new WrappedMessage(message));
 			beanItemContainer.addBean(message);
 		};
 		
