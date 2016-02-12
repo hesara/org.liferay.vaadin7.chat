@@ -3,6 +3,7 @@ package org.liferay.vaadin7.chat.labelview;
 import java.util.List;
 
 import org.liferay.vaadin7.chat.api.ChatService;
+import org.liferay.vaadin7.chat.api.ChatService.MessageHandler;
 import org.liferay.vaadin7.chat.api.Message;
 import org.liferay.vaadin7.chat.view.ViewFactory;
 import org.osgi.service.component.annotations.Reference;
@@ -50,10 +51,16 @@ public class LabelViewFactory implements ViewFactory {
 		chatLabel.setWidth(100, Unit.PERCENTAGE);
 		chatLabel.setValue(sb.toString());
 		
-		_chatService.register((message) -> {
+		MessageHandler messageHandler = (message) -> {
 			chatLabel.setValue(
 					String.format("%s<fieldset><legend>(%s) %s</legend><div>%s</div></fieldset>", 
 						chatLabel.getValue(), message.getTime(), message.getFromUser(), message.getBody()));
+		};
+		
+		_chatService.register(messageHandler);
+		
+		verticalLayout.addComponentDetachListener((event)-> {
+			_chatService.unRegister(messageHandler);
 		});
 
 		Button button = new Button("Send");

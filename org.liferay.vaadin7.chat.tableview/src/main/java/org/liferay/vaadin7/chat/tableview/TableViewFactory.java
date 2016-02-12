@@ -64,11 +64,17 @@ public class TableViewFactory implements ViewFactory {
 		table.setSelectable(true);
 		table.setWidth(100, Unit.PERCENTAGE);
 
-		_chatService.register((message) -> {
-			
-			beanItemContainer.addBean(new WrappedMessage(message));
-		});
+		MessageHandler messageHandler = (message) -> {
 
+			beanItemContainer.addBean(message);
+		};
+		
+		_chatService.register(messageHandler);
+		
+		verticalLayout.addDetachListener((event) -> {
+			_chatService.unRegister(messageHandler);
+		});
+		
 		Button button = new Button("Send");
 		TextField textField = new TextField();
 		textField.setWidth(100, Unit.PERCENTAGE);
