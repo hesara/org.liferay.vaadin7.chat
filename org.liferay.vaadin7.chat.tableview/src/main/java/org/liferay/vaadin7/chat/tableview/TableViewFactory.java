@@ -1,8 +1,6 @@
 package org.liferay.vaadin7.chat.tableview;
 
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.liferay.vaadin7.chat.api.ChatService;
 import org.liferay.vaadin7.chat.api.ChatService.MessageHandler;
@@ -15,9 +13,9 @@ import org.osgi.service.component.annotations.ReferenceCardinality;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.model.User;
-import com.liferay.portal.service.UserLocalService;
-import com.liferay.portal.util.Portal;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.UserLocalService;
+import com.liferay.portal.kernel.util.Portal;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.server.VaadinPortletService;
