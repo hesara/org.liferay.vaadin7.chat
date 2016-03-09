@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
-		<vaadin.version>7.6.1</vaadin.version>
+		<vaadin.version>7.7-SNAPSHOT</vaadin.version>
 		<vaadin7.compatibilitypack.version>${vaadin.version}</vaadin7.compatibilitypack.version>
 		<liferay.version>7.0.0-b6</liferay.version>
 		<maven-assembly-plugin.version>2.5.5</maven-assembly-plugin.version>
