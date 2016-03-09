@@ -14,7 +14,7 @@ This is using chat API</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.compendium</artifactId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
