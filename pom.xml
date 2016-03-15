@@ -8,7 +8,6 @@
 	<properties>
 		<vaadin.version>7.6.1</vaadin.version>
 		<vaadin7.compatibilitypack.version>${vaadin.version}</vaadin7.compatibilitypack.version>
-		<liferay.version>7.0.0-b6</liferay.version>
 		<maven-assembly-plugin.version>2.5.5</maven-assembly-plugin.version>
 		<org.osgi.compendium.version>5.0.0</org.osgi.compendium.version>
 		<org.osgi.core.version>6.0.0</org.osgi.core.version>
@@ -68,31 +67,6 @@
 				<groupId>com.liferay.portal</groupId>
 				<artifactId>com.liferay.portal.kernel</artifactId>
 				<version>[1.0.0,1.1.0)</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>util-bridges</artifactId>
-				<version>${liferay.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>util-java</artifactId>
-				<version>${liferay.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>util-taglib</artifactId>
-				<version>${liferay.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>portal-test</artifactId>
-				<version>${liferay.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.portal</groupId>
-				<artifactId>portal-test-internal</artifactId>
-				<version>${liferay.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.liferay</groupId>
