@@ -4,8 +4,5 @@ Bundle-SymbolicName: ${project.artifactId}
 Bundle-Name: ${project.name}
 Bundle-Description: ${project.description}
 
-Import-Package: \
-	*
-
 Bundle-Version: ${project.version}
 Export-Package: org.liferay.vaadin7.chat.view
