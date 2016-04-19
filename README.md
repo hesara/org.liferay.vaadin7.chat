@@ -11,7 +11,7 @@ Requirements:
 -------------
 - Java 8 and Maven
 - Liferay Portal 7 (latest)
-- Install https://github.com/sammso/org.liferay.vaadin7.compatibilitypack to your Lifieray 7
+- Install https://github.com/sammso/org.liferay.vaadin7.compatibilitypack to your Liferay 7
 
 To compile:
 -----------
@@ -22,18 +22,6 @@ mvn package
 
 Deploy:
 -----------
-
-portal-ext.properties
-
-~~~
-vaadin.resources.path=/o/vaadin7
-~~~
-
-if you are servicing Vaadin resources from resources bundle.
-
-~~~
-vaadin.resources.path=/o/vaadin7
-~~~
 
 ~~~
 cp org.liferay.vaadin7.compatibilitypack/target/org.liferay.vaadin7.compatibilitypack.distribution-<version>.lpkg -d <replace-this-to-your-liferay7-home>/deploy
