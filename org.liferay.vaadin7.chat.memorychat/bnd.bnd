@@ -4,9 +4,6 @@ Bundle-SymbolicName: ${project.artifactId}
 Bundle-Name: ${project.name}
 Bundle-Description: ${project.description}
 
-Import-Package: \
-	*
-
 -dsannotations: *
 Bundle-Version: ${project.version}
 Private-Package: org.liferay.vaadin7.memorychat
