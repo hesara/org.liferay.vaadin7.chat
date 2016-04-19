@@ -134,5 +134,5 @@
 			<url>https://repository.liferay.com/nexus/content/groups/liferay-ce/</url>
 		</pluginRepository>
 	</pluginRepositories>
-	<name>Liferay 7 Vaadin 7.6 OSGI Chat system</name>
+	<name>Liferay 7 Vaadin 7 OSGI Chat system</name>
 </project>
