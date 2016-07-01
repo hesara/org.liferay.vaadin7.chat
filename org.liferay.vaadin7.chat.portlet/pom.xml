@@ -47,9 +47,8 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.liferay.vaadin7.compatibilitypack</groupId>
-			<artifactId>org.liferay.vaadin7.compatibilitypack.webresources</artifactId>
-			<version>${vaadin7.compatibilitypack.version}</version>
+			<groupId>com.vaadin</groupId>
+			<artifactId>liferay-compatiblity</artifactId>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
