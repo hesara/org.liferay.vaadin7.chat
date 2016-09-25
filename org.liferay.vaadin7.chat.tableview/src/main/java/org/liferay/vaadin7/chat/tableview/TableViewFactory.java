@@ -49,6 +49,7 @@ public class TableViewFactory implements ViewFactory {
 		Message _message;
 	};
 */
+	
 	@Override
 	public com.vaadin.ui.Component createView() {
 		_log.info("createView()");
@@ -96,8 +97,11 @@ public class TableViewFactory implements ViewFactory {
 			try {
 				User user = _portal.getUser(VaadinPortletService.getCurrentPortletRequest());
 								
-				if (!user.isDefaultUser()) {
+				if (user!=null && !user.isDefaultUser()) {
 					_chatService.addMessage(user.getFullName(), textField.getValue());
+				}
+				else {
+					_chatService.addMessage("(Anonymous)", textField.getValue());
 				}
 			} 
 			catch (PortalException pe) {
