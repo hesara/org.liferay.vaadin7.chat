@@ -69,7 +69,7 @@ public class TableViewFactory implements ViewFactory {
 		// columns
 		
 		table.setVisibleColumns(new Object[] { "time","fromUser", "body" });
-		//table.setVisibleColumns(new Object[] { "fromUser", "body" });
+//		table.setVisibleColumns(new Object[] { "fromUser", "body" });
 		table.setColumnReorderingAllowed(false);
 		table.setPageLength(7);
 		table.setBuffered(false);
@@ -115,41 +115,14 @@ public class TableViewFactory implements ViewFactory {
 		verticalLayout.addComponent(button);
 		return verticalLayout;
 	}
-
-	@Reference(unbind = "unsetsetUserLocalService", cardinality = ReferenceCardinality.MANDATORY)
-	public void setUserLocalService(UserLocalService userLocalService) {
-		_log.error("setUserLocalService : " + (userLocalService != null));
-		_userLocalService = userLocalService;
-	}
-
-	public void unsetsetUserLocalService(UserLocalService userLocalService) {
-		_log.error("unsetsetUserLocalService : " + (userLocalService != null));
-		_userLocalService = null;
-	}	
 	
-	@Reference(unbind = "unsetChatService", cardinality = ReferenceCardinality.MANDATORY)
-	public void setChatService(ChatService chatService) {
-		_log.error("setChatService : " + (chatService != null));
-		_chatService = chatService;
-	}
-
-	public void unsetChatService(ChatService chatService) {
-		_log.error("unsetChatService : " + (chatService != null));
-		_chatService = null;
-	}
-	
-	@Reference(unbind = "unsetPortal", cardinality = ReferenceCardinality.MANDATORY)
-	public void setPortal(Portal portal) {
-		_log.error("setPortal : " + (portal != null));
-		_portal = portal;
-	}
-	
-	public void unsetPortal(Portal portal) {
-		_portal = null;
-	}
-	
+	@Reference(cardinality = ReferenceCardinality.MANDATORY)
 	private UserLocalService _userLocalService;
+	
+	@Reference(cardinality = ReferenceCardinality.MANDATORY)
 	private Portal _portal;
+	
+	@Reference(cardinality = ReferenceCardinality.MANDATORY)
 	private ChatService _chatService;
 
 	private Log _log = LogFactoryUtil.getLog(TableViewFactory.class);

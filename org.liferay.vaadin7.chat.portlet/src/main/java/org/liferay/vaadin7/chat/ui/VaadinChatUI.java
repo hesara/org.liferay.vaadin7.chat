@@ -48,13 +48,14 @@ public class VaadinChatUI extends UI implements ServiceTrackerCustomizer<ViewFac
 		serviceTracker.open();
 
 		addDetachListener((event) -> {
+			_log.error("serviceTracker.close()");
 			serviceTracker.close();
 		});
 	}
 
 	@Override
 	public ViewFactory addingService(ServiceReference<ViewFactory> serviceReference) {
-		_log.info("addingService");
+		_log.error("addingService");
 
 		Bundle bundle = FrameworkUtil.getBundle(getClass());
 		BundleContext bundleContext = bundle.getBundleContext();
@@ -89,7 +90,7 @@ public class VaadinChatUI extends UI implements ServiceTrackerCustomizer<ViewFac
 
 	@Override
 	public void removedService(ServiceReference<ViewFactory> reference, ViewFactory service) {
-		_log.info("removedServicex " + _serviceRegistry.size());
+		_log.error("removedService " + _serviceRegistry.size());
 		try {
 			accessSynchronously(() -> {
 				VerticalLayout verticalLayout = (VerticalLayout) getContent();
